@@ -47,6 +47,17 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Önceki", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.setTitleColor(.darkGray, for: .normal)
+        return button
+        
+    }()
+    private let btnSonraki : UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sonraki", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.setTitleColor(.darkGray, for: .normal)
         return button
         
     }()
@@ -69,19 +80,12 @@ class ViewController: UIViewController {
     
     
     fileprivate func butonKontrol() {
-        btnOnceki.backgroundColor = .blue
-        
-        let siyahView = UIView()
-        siyahView.backgroundColor = .black
         
         let kirmiziView = UIView()
         kirmiziView.backgroundColor = .red
         
-        let yesilView = UIView()
-        yesilView.backgroundColor = .green
         
-        
-        let butonStackView = UIStackView(arrangedSubviews: [siyahView, kirmiziView, yesilView])
+        let butonStackView = UIStackView(arrangedSubviews: [btnOnceki, kirmiziView, btnSonraki])
         butonStackView.translatesAutoresizingMaskIntoConstraints = false
         butonStackView.distribution = .fillEqually
         
