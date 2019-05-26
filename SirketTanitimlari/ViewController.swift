@@ -57,8 +57,18 @@ class ViewController: UIViewController {
         button.setTitle("Sonraki", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        button.setTitleColor(.darkGray, for: .normal)
+        button.setTitleColor(.yeniKirmizi, for: .normal)
         return button
+        
+    }()
+    
+    private let pageControl : UIPageControl = {
+        let pControl = UIPageControl()
+        pControl.currentPage = 0
+        pControl.numberOfPages = 5
+        pControl.currentPageIndicatorTintColor = UIColor.yeniKirmizi
+        pControl.pageIndicatorTintColor = UIColor.acikKirmizi
+        return pControl
         
     }()
     
@@ -81,11 +91,7 @@ class ViewController: UIViewController {
     
     fileprivate func butonKontrol() {
         
-        let kirmiziView = UIView()
-        kirmiziView.backgroundColor = .red
-        
-        
-        let butonStackView = UIStackView(arrangedSubviews: [btnOnceki, kirmiziView, btnSonraki])
+        let butonStackView = UIStackView(arrangedSubviews: [btnOnceki, pageControl, btnSonraki])
         butonStackView.translatesAutoresizingMaskIntoConstraints = false
         butonStackView.distribution = .fillEqually
         
@@ -138,5 +144,11 @@ class ViewController: UIViewController {
         
     }
 
+}
+
+
+extension UIColor {
+    static var yeniKirmizi = UIColor(red: 229/255, green: 70/255, blue: 129/255, alpha: 1)
+    static var acikKirmizi = UIColor(red: 250/255, green: 210/255, blue: 215/255, alpha: 1)
 }
 
