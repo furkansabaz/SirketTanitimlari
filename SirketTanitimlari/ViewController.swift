@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     let googleImage : UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Google"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -48,6 +49,29 @@ class ViewController: UIViewController {
 
     
     private func layoutDuzenle() {
+        
+        let ustView = UIView()
+        ustView.backgroundColor = .red
+        view.addSubview(ustView)
+        //ustView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+        
+        
+        ustView.translatesAutoresizingMaskIntoConstraints = false
+        
+        ustView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        ustView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        
+        ustView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        ustView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        ustView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+        
+        
+        
+        
+        
+        /*
         googleImage.translatesAutoresizingMaskIntoConstraints = false
         
         googleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -57,7 +81,7 @@ class ViewController: UIViewController {
         googleImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
         googleImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
         
-        
+        */
         
         txtSirketAdi.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 100).isActive = true
         txtSirketAdi.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
