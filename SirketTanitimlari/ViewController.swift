@@ -23,8 +23,17 @@ class ViewController: UIViewController {
     let txtSirketAdi : UITextView = {
         
         let textView = UITextView()
-        textView.text = "Ailemizin Arama Motoru Google"
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        //textView.text = "Ailemizin Arama Motoru Google"
+        //textView.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        
+        let attrText = NSMutableAttributedString(string: "Ailemizin Arama Motoru Google", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
+        
+        attrText.append(NSAttributedString(string: "\n\nİnternet araması, çevrim içi bilgi dağıtımı, reklam teknolojileri ve arama motorları için yatırımlar yapan çok uluslu Amerikan anonim şirketidir. İnternet tabanlı hizmet ve ürünler geliştirir.", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14) , NSAttributedString.Key.foregroundColor : UIColor.darkGray]))
+        
+        textView.attributedText = attrText
+        
+        
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -76,8 +85,8 @@ class ViewController: UIViewController {
         
         
         txtSirketAdi.topAnchor.constraint(equalTo: ustView.bottomAnchor, constant: 10).isActive = true
-        txtSirketAdi.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        txtSirketAdi.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        txtSirketAdi.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        txtSirketAdi.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         txtSirketAdi.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
         
