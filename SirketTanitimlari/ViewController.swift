@@ -69,15 +69,29 @@ class ViewController: UIViewController {
     
     
     fileprivate func butonKontrol() {
-        view.addSubview(btnOnceki)
         btnOnceki.backgroundColor = .blue
-        //btnOnceki.frame = CGRect(x: 0, y: 0, width: 210, height: 70)
+        
+        let siyahView = UIView()
+        siyahView.backgroundColor = .black
+        
+        let kirmiziView = UIView()
+        kirmiziView.backgroundColor = .red
+        
+        let yesilView = UIView()
+        yesilView.backgroundColor = .green
+        
+        
+        let butonStackView = UIStackView(arrangedSubviews: [siyahView, kirmiziView, yesilView])
+        butonStackView.translatesAutoresizingMaskIntoConstraints = false
+        butonStackView.distribution = .fillEqually
+        
+        view.addSubview(butonStackView)
         
         NSLayoutConstraint.activate([
-            btnOnceki.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            btnOnceki.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            btnOnceki.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            btnOnceki.heightAnchor.constraint(equalToConstant: 50)
+            butonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            butonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            butonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            butonStackView.heightAnchor.constraint(equalToConstant: 50)
             ])
         
         
@@ -88,7 +102,6 @@ class ViewController: UIViewController {
         
         let ustView = UIView()
         view.addSubview(ustView)
-        //ustView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         
         
         ustView.translatesAutoresizingMaskIntoConstraints = false
