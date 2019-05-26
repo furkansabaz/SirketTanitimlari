@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        view.addSubview(googleImage)
         view.addSubview(txtSirketAdi)
         layoutDuzenle()
         
@@ -51,15 +50,15 @@ class ViewController: UIViewController {
     private func layoutDuzenle() {
         
         let ustView = UIView()
-        ustView.backgroundColor = .red
         view.addSubview(ustView)
         //ustView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         
         
         ustView.translatesAutoresizingMaskIntoConstraints = false
         
-        ustView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        ustView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        ustView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        ustView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
         
         
         ustView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -69,21 +68,14 @@ class ViewController: UIViewController {
         
         
         
+        ustView.addSubview(googleImage)
+        googleImage.centerXAnchor.constraint(equalTo: ustView.centerXAnchor).isActive = true
+        googleImage.centerYAnchor.constraint(equalTo: ustView.centerYAnchor).isActive = true
+        
+        googleImage.heightAnchor.constraint(equalTo: ustView.heightAnchor, multiplier: 0.6).isActive = true
         
         
-        /*
-        googleImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        googleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        googleImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
-        
-        
-        googleImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        googleImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        
-        */
-        
-        txtSirketAdi.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 100).isActive = true
+        txtSirketAdi.topAnchor.constraint(equalTo: ustView.bottomAnchor, constant: 10).isActive = true
         txtSirketAdi.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         txtSirketAdi.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         txtSirketAdi.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
