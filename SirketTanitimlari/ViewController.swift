@@ -43,18 +43,46 @@ class ViewController: UIViewController {
         return textView
     }()
     
+    private let btnOnceki : UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Önceki", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         
         view.addSubview(txtSirketAdi)
+        butonKontrol()
         layoutDuzenle()
         
         
         
     }
 
+    
+    
+    
+    fileprivate func butonKontrol() {
+        view.addSubview(btnOnceki)
+        btnOnceki.backgroundColor = .blue
+        //btnOnceki.frame = CGRect(x: 0, y: 0, width: 210, height: 70)
+        
+        NSLayoutConstraint.activate([
+            btnOnceki.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            btnOnceki.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            btnOnceki.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            btnOnceki.heightAnchor.constraint(equalToConstant: 50)
+            ])
+        
+        
+        
+    }
     
     private func layoutDuzenle() {
         
