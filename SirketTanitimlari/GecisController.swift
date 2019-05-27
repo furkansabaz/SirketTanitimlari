@@ -15,6 +15,7 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
         super.viewDidLoad()
         collectionView.backgroundColor = .gray
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.isPagingEnabled = true
     }
     
     
@@ -25,7 +26,7 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .blue
+        cell.backgroundColor =  indexPath.row % 2 == 0 ? .green : .purple
         return cell
     }
     
@@ -34,5 +35,9 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
         
         
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
