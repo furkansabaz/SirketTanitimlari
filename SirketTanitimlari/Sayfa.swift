@@ -12,4 +12,5 @@ import Foundation
 struct Sayfa {
     let goruntuAdi : String
     let baslik : String
+    let aciklama : String
 }

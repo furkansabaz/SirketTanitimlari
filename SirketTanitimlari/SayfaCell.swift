@@ -20,7 +20,7 @@ class SayfaCell : UICollectionViewCell {
             
             let attrText = NSMutableAttributedString(string: sayfa.baslik, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
             
-            attrText.append(NSAttributedString(string: "\n\nİnternet araması, çevrim içi bilgi dağıtımı, reklam teknolojileri ve arama motorları için yatırımlar yapan çok uluslu Amerikan anonim şirketidir. İnternet tabanlı hizmet ve ürünler geliştirir.", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14) , NSAttributedString.Key.foregroundColor : UIColor.darkGray]))
+            attrText.append(NSAttributedString(string: "\n\n\(sayfa.aciklama)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14) , NSAttributedString.Key.foregroundColor : UIColor.darkGray]))
             
             txtSirketAdi.attributedText = attrText
             txtSirketAdi.textAlignment = .center
