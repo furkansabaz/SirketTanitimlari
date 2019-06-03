@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     
     let googleImage : UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Google"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "google"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
