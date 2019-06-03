@@ -37,8 +37,9 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SayfaCell
-        cell.googleImage.image = UIImage(named: sayfalar[indexPath.row].goruntuAdi)
-        cell.txtSirketAdi.text = sayfalar[indexPath.row].baslik
+//        cell.googleImage.image = UIImage(named: sayfalar[indexPath.row].goruntuAdi)
+//        cell.txtSirketAdi.text = sayfalar[indexPath.row].baslik
+        cell.sayfa = sayfalar[indexPath.row]
         return cell
     }
     

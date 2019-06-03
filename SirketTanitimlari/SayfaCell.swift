@@ -11,13 +11,32 @@ import UIKit
 
 class SayfaCell : UICollectionViewCell {
     
-    let googleImage : UIImageView = {
+    var sayfa : Sayfa? {
+        didSet {
+            print(sayfa?.goruntuAdi)
+            
+            guard let sayfa = sayfa else { return }
+            googleImage.image = UIImage(named: sayfa.goruntuAdi)
+            
+            let attrText = NSMutableAttributedString(string: sayfa.baslik, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
+            
+            attrText.append(NSAttributedString(string: "\n\nİnternet araması, çevrim içi bilgi dağıtımı, reklam teknolojileri ve arama motorları için yatırımlar yapan çok uluslu Amerikan anonim şirketidir. İnternet tabanlı hizmet ve ürünler geliştirir.", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14) , NSAttributedString.Key.foregroundColor : UIColor.darkGray]))
+            
+            txtSirketAdi.attributedText = attrText
+            txtSirketAdi.textAlignment = .center
+            
+        }
+    }
+    
+    
+    
+    private let googleImage : UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "google"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    let txtSirketAdi : UITextView = {
+    private let txtSirketAdi : UITextView = {
         
         let textView = UITextView()
         //textView.text = "Ailemizin Arama Motoru Google"
