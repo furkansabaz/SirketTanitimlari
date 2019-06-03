@@ -21,9 +21,60 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
         Sayfa(goruntuAdi: "instagram", baslik: "Fotoğraflarınızı Instagram'da Paylaşın", aciklama: "Instagram, sosyal medyada ücretsiz fotoğraf ve video paylaşma uygulaması. Ekim 2010'da kurulduğunda, kullanıcılarına çektikleri bir fotoğraf üzerinde dijital filtre kullanma ve bu fotoğrafı Instagram'ın da dahil olduğu, sosyal medya servisleri ile paylaşma imkanı tanımıştır."),
         Sayfa(goruntuAdi: "apple", baslik: "Yeniliklerle Dolu Dünya - Apple", aciklama: "Apple, merkezi Cupertino'da bulunan; tüketici elektroniği, bilgisayar yazılımı ve kişisel bilgisayar tasarlayan, geliştiren ve satan Amerikan çok uluslu şirkettir."),
     ]
+    private let btnOnceki : UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Önceki", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.setTitleColor(.darkGray, for: .normal)
+        return button
+        
+    }()
+    private let btnSonraki : UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sonraki", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.setTitleColor(.yeniKirmizi, for: .normal)
+        button.addTarget(self, action: #selector(btnSonrakiClicked), for: .touchUpInside)
+        return button
+        
+    }()
+    @objc private func btnSonrakiClicked() {
+        pageControl.currentPage += 1
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    private let pageControl : UIPageControl = {
+        let pControl = UIPageControl()
+        pControl.currentPage = 0
+        pControl.numberOfPages = 5
+        pControl.currentPageIndicatorTintColor = UIColor.yeniKirmizi
+        pControl.pageIndicatorTintColor = UIColor.acikKirmizi
+        return pControl
+        
+    }()
+    fileprivate func butonKontrol() {
+        
+        let butonStackView = UIStackView(arrangedSubviews: [btnOnceki, pageControl, btnSonraki])
+        butonStackView.translatesAutoresizingMaskIntoConstraints = false
+        butonStackView.distribution = .fillEqually
+        
+        view.addSubview(butonStackView)
+        
+        NSLayoutConstraint.activate([
+            butonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            butonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            butonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            butonStackView.heightAnchor.constraint(equalToConstant: 50)
+            ])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        butonKontrol()
         collectionView.backgroundColor = .gray
         collectionView.register(SayfaCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.isPagingEnabled = true

@@ -13,8 +13,7 @@ class SayfaCell : UICollectionViewCell {
     
     var sayfa : Sayfa? {
         didSet {
-            print(sayfa?.goruntuAdi)
-            
+           
             guard let sayfa = sayfa else { return }
             googleImage.image = UIImage(named: sayfa.goruntuAdi)
             
