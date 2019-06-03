@@ -27,9 +27,15 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.setTitleColor(.darkGray, for: .normal)
+        button.addTarget(self, action: #selector(btnOncekiClicked), for: .touchUpInside)
         return button
         
     }()
+    @objc private func btnOncekiClicked() {
+        pageControl.currentPage -= 1
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
     private let btnSonraki : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sonraki", for: .normal)
@@ -46,10 +52,10 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    private let pageControl : UIPageControl = {
+    private lazy var pageControl : UIPageControl = {
         let pControl = UIPageControl()
         pControl.currentPage = 0
-        pControl.numberOfPages = 5
+        pControl.numberOfPages = sayfalar.count
         pControl.currentPageIndicatorTintColor = UIColor.yeniKirmizi
         pControl.pageIndicatorTintColor = UIColor.acikKirmizi
         return pControl
@@ -70,6 +76,15 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
             butonStackView.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        
+        
+        //print(x, view.frame.width, x / view.frame.width)
+        pageControl.currentPage = Int(x / view.frame.width)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
