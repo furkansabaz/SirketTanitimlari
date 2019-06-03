@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D192E2B22A50D1F00A53B84 /* Sayfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D192E2A22A50D1F00A53B84 /* Sayfa.swift */; };
 		3D226233229A994100A47CF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D226232229A994100A47CF5 /* AppDelegate.swift */; };
 		3D226235229A994100A47CF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D226234229A994100A47CF5 /* ViewController.swift */; };
 		3D226238229A994100A47CF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D226236229A994100A47CF5 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D192E2A22A50D1F00A53B84 /* Sayfa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sayfa.swift; sourceTree = "<group>"; };
 		3D22622F229A994100A47CF5 /* SirketTanitimlari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SirketTanitimlari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D226232229A994100A47CF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D226234229A994100A47CF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				3D22623E229A994200A47CF5 /* Info.plist */,
 				3D3F92FF229C738300C72F91 /* GecisController.swift */,
 				3D3F9303229C893000C72F91 /* SayfaCell.swift */,
+				3D192E2A22A50D1F00A53B84 /* Sayfa.swift */,
 			);
 			path = SirketTanitimlari;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				3D226235229A994100A47CF5 /* ViewController.swift in Sources */,
 				3D226233229A994100A47CF5 /* AppDelegate.swift in Sources */,
 				3D3F9304229C893000C72F91 /* SayfaCell.swift in Sources */,
+				3D192E2B22A50D1F00A53B84 /* Sayfa.swift in Sources */,
 				3D3F9300229C738300C72F91 /* GecisController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,16 @@ import UIKit
 class GecisController : UICollectionViewController , UICollectionViewDelegateFlowLayout{
     
     
-    let goruntuler = ["google","amazon","facebook","instagram","apple"]
+
     
-    let basliklar = ["Ailenizin Arama Motoru - Google", "Dünyanın En Büyük Ürün Yelpazesi - Amazon", "Sosyal Medya Sitesi Facebook", "Fotoğraflarınızı Instagram'da Paylaşın","Yeniliklerle Dolu Dünya - Apple"]
+    let sayfalar =  [
+        Sayfa(goruntuAdi: "google", baslik: "Ailenizin Arama Motoru - Google"),
+        Sayfa(goruntuAdi: "amazon", baslik: "Dünyanın En Büyük Ürün Yelpazesi - Amazon"),
+        Sayfa(goruntuAdi: "facebook", baslik: "Sosyal Medya Sitesi Facebook"),
+        Sayfa(goruntuAdi: "instagram", baslik: "Fotoğraflarınızı Instagram'da Paylaşın"),
+        Sayfa(goruntuAdi: "apple", baslik: "Yeniliklerle Dolu Dünya - Apple"),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .gray
@@ -24,14 +31,14 @@ class GecisController : UICollectionViewController , UICollectionViewDelegateFlo
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return goruntuler.count
+        return sayfalar.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SayfaCell
-        cell.googleImage.image = UIImage(named: goruntuler[indexPath.row])
-        cell.txtSirketAdi.text = basliklar[indexPath.row]
+        cell.googleImage.image = UIImage(named: sayfalar[indexPath.row].goruntuAdi)
+        cell.txtSirketAdi.text = sayfalar[indexPath.row].baslik
         return cell
     }
     
